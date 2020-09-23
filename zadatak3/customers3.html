@@ -1,0 +1,23 @@
+
+<html>
+    <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function showResults(str) {
+                axios.get("http://localhost/zadatak3/customers_search.php?s=" + str)
+                .then(function(response) {
+                  document.getElementById("output").innerHTML = response.data;
+                });
+            }
+            showResults("");
+        </script>
+    </head>
+    <body>
+    
+    <form>
+        Search: <input type="text" onkeyup="showResults(this.value)">
+    </form>
+    <p>Djelatnici:<br> </p>
+    <div id="output"></div>
+    </body>
+    </html>

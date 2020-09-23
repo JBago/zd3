@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        function showResults(str) {
+			$.ajax({
+			  url: "http://localhost/zadatak3/customers_search.php?s=" + str
+			}).done(function(response) {
+			  $("#output").html(response);
+			});
+        }
+        showResults("");
+    </script>
+</head>
+<body>
+
+<form>
+    Search: <input type="text" onkeyup="showResults(this.value)">
+</form>
+<p>Djelatnici:<br> </p>
+<div id="output"></div>
+</body>
+</html>

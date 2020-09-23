@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script>
+        function showResults(str) {
+            var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("output").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "http://localhost/zadatak3/customers_search.php?s=" + str, true);
+                xmlhttp.send();
+        }
+        showResults("");
+    </script>
+</head>
+<body>
+
+<form>
+    Search: <input type="text" onkeyup="showResults(this.value)">
+</form>
+<p>Djelatnici:<br> </p>
+<div id="output"></div>
+</body>
+</html>
